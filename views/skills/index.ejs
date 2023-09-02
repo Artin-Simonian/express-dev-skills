@@ -6,13 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-  <h1>Skills</h1>
+ 
+  <h3>Skills as of <%= time %></h3>
   <ul>
+  
     <% skills.forEach(function(t) { %>
       <li style="list-style: none;">
+        <form action="/skills/<%= t.id %>?_method=DELETE"
+          class="delete-form" method="POST">
+          <button type="submit">X</button>
+        </form>
         <a style="text-decoration: none;" href="/skills/<%= t.id %>"><%= t.skill %></a>
       </li>
     <% }); %>
   </ul>
+  <a href="/skills/new">Add To-Do</a>
+  
 </body>
 </html>
